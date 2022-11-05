@@ -1,0 +1,100 @@
+div.app-container {
+  max-width: 50%;
+  border: 5px solid #142d4c;
+  border-radius: 4px;
+  margin-top: 30px;
+  background: #425f82;
+  font-family: "Kanit", sans-serif;
+  color: #ececec;
+}
+div.top-left {
+  margin-top: 10px;
+}
+form {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+input {
+  all: unset;
+  font: 16px system-ui;
+  background: #ececec;
+  color: #2b3642;
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 3px solid #142d4c;
+}
+.card-title {
+  font-size: 2rem;
+}
+.card-subtitle {
+  font-size: 1.3rem;
+}
+.mag-button {
+  background: transparent;
+  border: none;
+  position: relative;
+  right: 40px;
+  font-size: 20px;
+}
+
+.current-location-button {
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 0px 10px;
+  position: relative;
+  right: 10px;
+}
+
+div.cw-card {
+  border: none;
+  background: #425f82;
+  color: #ececec;
+  font-weight: 200;
+}
+
+div.city-temp {
+  font-size: 90px;
+  text-align: center;
+}
+div.index {
+  font-size: 18px;
+  padding-top: 30px;
+}
+
+a.index-links {
+  color: #ececec;
+  text-decoration: none;
+}
+.index-links:hover {
+  color: #29343f;
+}
+
+div.current-precipt-info {
+  position: relative;
+  top: 43px;
+  font-size: 16px;
+}
+
+div.hourly-forcast {
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+
+div.daily-forcast {
+  font-size: 14px;
+  font-weight: 200;
+  padding-top: 5px;
+  border-left: thick double #142d4c;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
