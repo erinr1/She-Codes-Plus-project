@@ -98,3 +98,8 @@ div.daily-forcast {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+div.source-link {
+  margin: 0 auto;
+  max-width: 50%;
+  font-size: 10px;
+}
