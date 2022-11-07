@@ -15,10 +15,51 @@ function handleSearchCity(event) {
 
 search("New York");
 
+function formatTime(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+
+  let mins = date.getMinutes();
+  if (mins < 10) {
+    mins = `0${mins}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    " August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let month = months[date.getMonth()];
+  let dateNum = date.getDate();
+  return `Last updated: ${day}, ${month} ${dateNum} | ${hour}:${mins}`;
+}
+
 function showTemperature(response) {
   let currentCityTemp = document.querySelector("#current-city-temp");
   let tempInfo = Math.round(response.data.main.temp);
-  currentCityTemp.innerHTML = `${tempInfo}°`;
+  currentCityTemp.innerHTML = `${tempInfo}`;
 
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
@@ -32,6 +73,9 @@ function showTemperature(response) {
   );
 
   document.querySelector("#display-city").innerHTML = response.data.name;
+  document.querySelector("#date-time").innerHTML = formatTime(
+    response.data.dt * 1000
+  );
 }
 
 let searchCity = document.querySelector("#search-city");
@@ -52,50 +96,6 @@ function getLocation(event) {
 
 let searchCurrentCity = document.querySelector("#current-location");
 searchCurrentCity.addEventListener("click", getLocation);
-
-let date = new Date();
-let dayApp = document.querySelector("#date-time");
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[date.getDay()];
-
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  " August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-let month = months[date.getMonth()];
-let dateNum = date.getDate();
-
-let hour = date.getHours();
-if (hour < 10) {
-  hour = `0${hour}`;
-}
-
-let mins = date.getMinutes();
-if (mins < 10) {
-  mins = `0${mins}`;
-}
-
-dayApp.innerHTML = `${day}, ${month} ${dateNum} | ${hour}:${mins}`;
 
 //function changeToF() {
 //let tempF = document.querySelector("#current-city-temp");
