@@ -51,7 +51,7 @@
                       id="date-time"
                     ></h6>
                     <div class="row">
-                      <div class="col-sm-5">
+                      <div class="col-sm-5 current-temp">
                         <span class="city-temp" id="current-city-temp"></span
                         ><span class="index">
                           <a class="index-links" id="fahrenheit" href="#">F°</a>
@@ -62,11 +62,13 @@
 
                       <div class="col-sm-7 current-precipt-info">
                         <div class="row">
-                          <div class="col-12 current-sun">
+                          <div class="col-12 current-condition">
+                            <img src="" alt="" id="condition-image" />
                             <span id="description"></span>
                           </div>
                           <div class="col-12 current-wind">
-                            💨 <span id="wind-speed"></span> km/h
+                            <span id="wind-icon"> 💨 </span
+                            ><span id="wind-speed"></span> km/h
                           </div>
                           <div class="col-12 feels-like">
                             Feels like <span id="feels-like"></span>°
