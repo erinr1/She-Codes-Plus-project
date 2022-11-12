@@ -34,6 +34,7 @@
                 id="city"
                 name="city"
                 placeholder="Search for a city..."
+                autocomplete="off"
               />
               <button class="mag-button">🔍</button>
               <button class="current-location-button" id="current-location">
@@ -54,7 +55,9 @@
                       <div class="col-sm-5 current-temp">
                         <span class="city-temp" id="current-city-temp"></span
                         ><span class="index">
-                          <a class="index-links" id="fahrenheit" href="#">F°</a>
+                          <a class="index-links active" id="fahrenheit" href="#"
+                            >F°</a
+                          >
                           |
                           <a class="index-links" id="celcius" href="#">C°</a>
                         </span>
@@ -71,7 +74,7 @@
                             ><span id="wind-speed"></span> km/h
                           </div>
                           <div class="col-12 feels-like">
-                            Feels like <span id="feels-like"></span>°
+                            Feels like <span id="feels-like"></span>°F
                           </div>
                         </div>
                       </div>

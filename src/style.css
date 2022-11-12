@@ -69,8 +69,14 @@ span.index {
 
 a.index-links {
   color: #6ab6de;
+  text-decoration: underline;
+}
+a.active {
+  color: #ececec;
+  font-weight: bolder;
   text-decoration: none;
 }
+
 .index-links:hover {
   color: #29343f;
   text-decoration: underline;
