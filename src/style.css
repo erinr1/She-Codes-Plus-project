@@ -68,11 +68,12 @@ span.index {
 }
 
 a.index-links {
-  color: #ececec;
+  color: #6ab6de;
   text-decoration: none;
 }
 .index-links:hover {
   color: #29343f;
+  text-decoration: underline;
 }
 
 div.current-precipt-info {
