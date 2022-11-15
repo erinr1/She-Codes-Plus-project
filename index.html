@@ -42,9 +42,9 @@
               </button>
             </form>
 
-            <div class="col-12 current-weather">
+            <div class="current-weather">
               <div class="row">
-                <div class="col-12 card cw-card">
+                <div class="card cw-card">
                   <div class="card-body">
                     <h5 class="card-title current-city" id="display-city"></h5>
                     <h6
@@ -65,15 +65,15 @@
 
                       <div class="col-sm-7 current-precipt-info">
                         <div class="row">
-                          <div class="col-12 current-condition">
+                          <div class="current-condition">
                             <img src="" alt="" id="condition-image" />
                             <span id="description"></span>
                           </div>
-                          <div class="col-12 current-wind">
+                          <div class="current-wind">
                             <span id="wind-icon"> 💨 </span
                             ><span id="wind-speed"></span> km/h
                           </div>
-                          <div class="col-12 feels-like">
+                          <div class="feels-like">
                             Feels like <span id="feels-like"></span>°F
                           </div>
                         </div>
@@ -83,86 +83,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 cw-card hourly-forcast">
-              <div class="row">
-                <div class="col add-1-hr">
-                  <div class="row">
-                    <div class="col-12">5pm EST</div>
-                    <div class="col-12">⛅️</div>
-                    <div class="col-12">67°</div>
-                  </div>
-                </div>
-                <div class="col add-2-hr">
-                  <div class="row">
-                    <div class="col-12">6pm EST</div>
-                    <div class="col-12">☁️</div>
-                    <div class="col-12">63°</div>
-                  </div>
-                </div>
-                <div class="col add-3-hr">
-                  <div class="row">
-                    <div class="col-12">7pm EST</div>
-                    <div class="col-12">☁️</div>
-                    <div class="col-12">60°</div>
-                  </div>
-                </div>
-                <div class="col add-4-hr">
-                  <div class="row">
-                    <div class="col-12">8pm EST</div>
-                    <div class="col-12">🌧</div>
-                    <div class="col-12">59°</div>
-                  </div>
-                </div>
-                <div class="col add-5-hr">
-                  <div class="row">
-                    <div class="col-12">9pm EST</div>
-                    <div class="col-12">☁️</div>
-                    <div class="col-12">59°</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="hourly-forecast" id="hourly-forecast"></div>
           </div>
         </div>
-
-        <div class="col-3 daily-forcast">
-          <div class="row">
-            <div class="col-12 day-1">
-              <div class="row">
-                <div class="col-12">Wednesday</div>
-                <div class="col-12">☁️</div>
-                <div class="col-12">59°/67°</div>
-              </div>
-            </div>
-            <div class="col-12 day-2">
-              <div class="row">
-                <div class="col-12">Thursday</div>
-                <div class="col-12">🌧</div>
-                <div class="col-12">47°/55°</div>
-              </div>
-            </div>
-            <div class="col-12 day-3">
-              <div class="row">
-                <div class="col-12">Friday</div>
-                <div class="col-12">☀️</div>
-                <div class="col-12">52°/65°</div>
-              </div>
-            </div>
-            <div class="col-12 day-4">
-              <div class="row">
-                <div class="col-12">Saturday</div>
-                <div class="col-12">⛈</div>
-                <div class="col-12">50°/57°</div>
-              </div>
-            </div>
-            <div class="col-12 day-5">
-              <div class="row">
-                <div class="col-12">Sunday</div>
-                <div class="col-12">☀️</div>
-                <div class="col-12">55°/70°</div>
-              </div>
-            </div>
-          </div>
+        <div class="col-3 daily-forecast">
+          <div id="daily-forecast"></div>
         </div>
       </div>
     </div>

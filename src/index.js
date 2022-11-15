@@ -54,6 +54,52 @@ function formatTime(timestamp) {
   return `Last updated: ${day}, ${month} ${dateNum} | ${hour}:${mins}`;
 }
 
+function displayHourlyForecast() {
+  let hourlyForecastElement = document.querySelector("#hourly-forecast");
+  let hours = ["5pm", "6pm", "7pm", "8pm", "9pm", "10pm"];
+
+  let hourlyForecastHTML = `<div class="row">`;
+  hours.forEach(function (hours) {
+    hourlyForecastHTML =
+      hourlyForecastHTML +
+      `
+                  <div class="col-2">
+                    <div class="forecast-hour">${hours}</div>
+                    <div class="hourly-image">⛅️</div>
+                    <div class="hourly-temp">67°</div>
+                  </div>
+                
+`;
+  });
+
+  hourlyForecastHTML = hourlyForecastHTML + `</div>`;
+  hourlyForecastElement.innerHTML = hourlyForecastHTML;
+}
+
+function displayDailyForecast() {
+  let dailyForecastElement = document.querySelector("#daily-forecast");
+  let days = ["Wed", "Thurs", "Fri", "Sat", "Sun"];
+
+  let dailyForecastHTML = `<div class="row">`;
+  days.forEach(function (days) {
+    dailyForecastHTML =
+      dailyForecastHTML +
+      `
+            <div class="day-one">
+              <div class="row">
+                <div>${days}</div>
+                <div>☁️</div>
+                <div>59°/67°</div>
+              </div>
+            </div>
+`;
+  });
+
+  dailyForecastHTML = dailyForecastHTML + `</div>`;
+  dailyForecastElement.innerHTML = dailyForecastHTML;
+  console.log(dailyForecastHTML);
+}
+
 function showTemperature(response) {
   console.log(response);
   let currentCityTemp = document.querySelector("#current-city-temp");
@@ -126,6 +172,8 @@ let searchCurrentCity = document.querySelector("#current-location");
 searchCurrentCity.addEventListener("click", getLocation);
 
 search("New York");
+displayHourlyForecast();
+displayDailyForecast();
 
 let celciusTemp = document.querySelector("#celcius");
 celciusTemp.addEventListener("click", displayCelciusTemp);

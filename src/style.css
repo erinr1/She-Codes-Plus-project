@@ -89,24 +89,28 @@ div.current-precipt-info {
   text-align: left;
 }
 
-div.hourly-forcast {
+div.hourly-forecast {
   text-align: center;
-  padding-bottom: 10px;
   font-size: 16px;
+  font-weight: 200;
+  padding-top: 15px;
 }
 
-div.daily-forcast {
+div.daily-forecast {
   font-size: 14px;
   font-weight: 200;
-  padding-top: 5px;
   border-left: thick double #142d4c;
   text-align: center;
   display: flex;
   justify-content: space-between;
   position: relative;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
+
+div.day-one {
+  padding: 5px;
+  border-bottom: 2px double #142d4c;
+}
+
 div.source-link {
   margin: 0 auto;
   max-width: 50%;
