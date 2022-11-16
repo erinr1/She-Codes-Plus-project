@@ -54,54 +54,100 @@ function formatTime(timestamp) {
   return `Last updated: ${day}, ${month} ${dateNum} | ${hour}:${mins}`;
 }
 
+function formatHour(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let hour = date.getHours() % 12 || 12;
+  var am_pm = date.getHours() >= 12 ? "PM" : "AM";
+  time = `${hour} ${am_pm.toLowerCase()}`;
+  return time;
+}
+
 function displayHourlyForecast(response) {
   console.log(response.data.hourly);
+  let hourlyForecast = response.data.hourly;
   let hourlyForecastElement = document.querySelector("#hourly-forecast");
-  let hours = ["5pm", "6pm", "7pm", "8pm", "9pm", "10pm"];
 
   let hourlyForecastHTML = `<div class="row">`;
-  hours.forEach(function (hours) {
-    hourlyForecastHTML =
-      hourlyForecastHTML +
-      `
+  hourlyForecast.forEach(function (forecastHours, index) {
+    if (index < 7 === index > 0) {
+      hourlyForecastHTML =
+        hourlyForecastHTML +
+        `
                   <div class="col-2">
-                    <div class="forecast-hour">${hours}</div>
-                    <div class="hourly-image">⛅️</div>
-                    <div class="hourly-temp">67°</div>
+                    <div class="forecast-hour">${formatHour(
+                      forecastHours.dt
+                    )}</div>
+                    <img
+          src="http://openweathermap.org/img/wn/${
+            forecastHours.weather[0].icon
+          }@2x.png"
+          alt="weather forcast icon"
+          id= "hourly-icon"
+        />
+                    <div class="hourly-temp"><span>${Math.round(
+                      forecastHours.temp
+                    )}</span>°</div>
                   </div>
                 
 `;
+    }
   });
 
   hourlyForecastHTML = hourlyForecastHTML + `</div>`;
   hourlyForecastElement.innerHTML = hourlyForecastHTML;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayDailyForecast(response) {
-  console.log(response.data.daily);
+  dailyForecast = response.data.daily;
   let dailyForecastElement = document.querySelector("#daily-forecast");
-  let days = ["Wed", "Thurs", "Fri", "Sat", "Sun"];
 
   let dailyForecastHTML = `<div class="row">`;
-  days.forEach(function (days) {
-    dailyForecastHTML =
-      dailyForecastHTML +
-      `
+  dailyForecast.forEach(function (forecastDays, index) {
+    if (index < 6 === index > 0) {
+      dailyForecastHTML =
+        dailyForecastHTML +
+        `
             <div class="day-one">
               <div class="row">
-                <div>${days}</div>
-                <div>☁️</div>
-                <div>59°/67°</div>
+                <div>${formatDay(forecastDays.dt)}</div>
+               <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDays.weather[0].icon
+          }@2x.png"
+          alt="weather forcast icon"
+          id= "days-icon"
+        />
+                <div> <span>${Math.round(
+                  forecastDays.temp.max
+                )}</span>°/<span>${Math.round(
+          forecastDays.temp.min
+        )}</span>°</div>
               </div>
             </div>
 `;
+    }
   });
 
   dailyForecastHTML = dailyForecastHTML + `</div>`;
   dailyForecastElement.innerHTML = dailyForecastHTML;
 }
 
-function getDailyForecast(coordinates) {
+function getForecast(coordinates) {
   let apiKey = "eb9542c65e739e0fb25ade97c749e2aa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayDailyForecast);
@@ -139,7 +185,7 @@ function showTemperature(response) {
     .querySelector("#condition-image")
     .setAttribute("alt", response.data.weather[0].description);
 
-  getDailyForecast(response.data.coord);
+  getForecast(response.data.coord);
 }
 
 function logLocation(postion) {
@@ -181,7 +227,6 @@ let searchCurrentCity = document.querySelector("#current-location");
 searchCurrentCity.addEventListener("click", getLocation);
 
 search("New York");
-displayHourlyForecast();
 
 let celciusTemp = document.querySelector("#celcius");
 celciusTemp.addEventListener("click", displayCelciusTemp);

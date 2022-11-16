@@ -91,13 +91,13 @@ div.current-precipt-info {
 
 div.hourly-forecast {
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 200;
-  padding-top: 15px;
+  padding-top: 25px;
 }
 
 div.daily-forecast {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 200;
   border-left: thick double #142d4c;
   text-align: center;
@@ -107,7 +107,6 @@ div.daily-forecast {
 }
 
 div.day-one {
-  padding: 5px;
   border-bottom: 2px double #142d4c;
 }
 
@@ -126,4 +125,14 @@ div.feels-like {
 #wind-icon {
   margin-right: 5px;
   margin-left: 5px;
+}
+
+#days-icon {
+  max-width: 35%;
+  margin: 0 auto;
+}
+
+#hourly-icon {
+  max-width: 75%;
+  margin: 0 auto;
 }
