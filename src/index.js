@@ -15,15 +15,15 @@ function handleSearchCity(event) {
 
 function formatTime(timestamp) {
   let date = new Date(timestamp);
-  let hour = date.getHours();
-  if (hour < 10) {
-    hour = `0${hour}`;
-  }
+  let hour = date.getHours() % 12 || 12;
+  var am_pm = date.getHours() >= 12 ? "PM" : "AM";
 
   let mins = date.getMinutes();
   if (mins < 10) {
     mins = `0${mins}`;
   }
+  time = `${mins} ${am_pm.toLowerCase()}`;
+
   let days = [
     "Sunday",
     "Monday",
@@ -51,7 +51,7 @@ function formatTime(timestamp) {
 
   let month = months[date.getMonth()];
   let dateNum = date.getDate();
-  return `Last updated: ${day}, ${month} ${dateNum} | ${hour}:${mins}`;
+  return `Last updated: ${day}, ${month} ${dateNum} | ${hour}:${time}`;
 }
 
 function formatHour(timestamp) {
@@ -63,7 +63,6 @@ function formatHour(timestamp) {
 }
 
 function displayHourlyForecast(response) {
-  console.log(response.data.hourly);
   let hourlyForecast = response.data.hourly;
   let hourlyForecastElement = document.querySelector("#hourly-forecast");
 

@@ -3,7 +3,7 @@ div.app-container {
   border: 5px solid #142d4c;
   border-radius: 4px;
   margin-top: 30px;
-  background: #425f82;
+  background: #6686ad;
   font-family: "Kanit", sans-serif;
   color: #ececec;
 }
@@ -52,7 +52,7 @@ input {
 
 div.cw-card {
   border: none;
-  background: #425f82;
+  background: #6686ad;
   color: #ececec;
   font-weight: 200;
 }
@@ -68,7 +68,7 @@ span.index {
 }
 
 a.index-links {
-  color: #6ab6de;
+  color: #6ec9f9;
   text-decoration: underline;
 }
 a.active {
@@ -93,7 +93,7 @@ div.hourly-forecast {
   text-align: center;
   font-size: 18px;
   font-weight: 200;
-  padding-top: 25px;
+  padding-top: 30px;
 }
 
 div.daily-forecast {
@@ -135,4 +135,7 @@ div.feels-like {
 #hourly-icon {
   max-width: 75%;
   margin: 0 auto;
+}
+#date-time {
+  font-size: 18px;
 }
